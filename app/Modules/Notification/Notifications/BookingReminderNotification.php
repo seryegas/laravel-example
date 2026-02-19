@@ -31,7 +31,7 @@ class BookingReminderNotification extends Notification
             ->subject('Booking Reminder')
             ->line('Your appointment is in 1 hour.')
             ->line("Service: {$this->booking->service->name}")
-            ->line("Time: {$this->booking->start_time->format('h:i A')}");
+            ->line("Time: {$this->booking->timeSlot->start_time->format('h:i A')}");
     }
 
     /**
@@ -42,7 +42,7 @@ class BookingReminderNotification extends Notification
         return [
             'booking_id' => $this->booking->id,
             'service_name' => $this->booking->service->name,
-            'time' => $this->booking->start_time->toDateTimeString(),
+            'time' => $this->booking->timeSlot->start_time->toDateTimeString(),
         ];
     }
 }

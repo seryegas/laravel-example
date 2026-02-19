@@ -12,11 +12,28 @@ use App\Modules\Payment\Models\Payment;
 use App\Modules\Service\Models\Service;
 use App\Modules\Service\Models\TimeSlot;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property int $service_id
+ * @property int $time_slot_id
+ * @property BookingStatus $status
+ * @property string|null $notes
+ * @property \Illuminate\Support\Carbon|null $cancelled_at
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ *
+ * @property-read User $user
+ * @property-read Service $service
+ * @property-read TimeSlot $timeSlot
+ * @property-read Collection<int, Payment> $payments
+ */
 class Booking extends Model
 {
     use HasFactory;

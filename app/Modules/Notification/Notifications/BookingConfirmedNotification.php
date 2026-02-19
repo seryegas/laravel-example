@@ -29,7 +29,7 @@ class BookingConfirmedNotification extends Notification
     {
         return (new MailMessage())
             ->subject('Booking Confirmed')
-            ->line("Your booking for {$this->booking->service->name} on {$this->booking->booking_date->format('M d, Y')} has been confirmed.")
+            ->line("Your booking for {$this->booking->service->name} on {$this->booking->timeSlot->date->format('M d, Y')} has been confirmed.")
             ->line('Thank you for choosing our service!');
     }
 
@@ -41,7 +41,7 @@ class BookingConfirmedNotification extends Notification
         return [
             'booking_id' => $this->booking->id,
             'service_name' => $this->booking->service->name,
-            'date' => $this->booking->booking_date->toDateString(),
+            'date' => $this->booking->timeSlot->date->toDateString(),
             'status' => $this->booking->status->value,
         ];
     }

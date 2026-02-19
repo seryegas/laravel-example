@@ -10,7 +10,22 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Carbon;
 
+/**
+ * Class TimeSlot
+ *
+ * @property int $id
+ * @property int $service_id
+ * @property Carbon $date
+ * @property Carbon $start_time
+ * @property Carbon $end_time
+ * @property SlotStatus $status
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ *
+ * @property-read Service $service
+ */
 class TimeSlot extends Model
 {
     use HasFactory;
