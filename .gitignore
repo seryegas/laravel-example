@@ -12,6 +12,5 @@
 /.vscode
 /.zed
 /auth.json
-/storage/*.key
-/storage/pail
+/storage
 /vendor
