@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\Payment\Events;
+
+use App\Modules\Payment\Models\Payment;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
+
+class PaymentReceived
+{
+    use Dispatchable;
+    use SerializesModels;
+
+    public function __construct(
+        public readonly Payment $payment,
+    ) {}
+}
